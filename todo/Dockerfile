@@ -4,8 +4,8 @@ RUN pip3 install virtualenv\
     net-tools \
     django
 
-RUN virtualenv env
-RUN /bin -c 'source env/bin/activate'
+RUN virtualenv env\
+    && /bin/bash -c "source env/bin/activate"
    
 ADD /server /todo
 
