@@ -1,11 +1,13 @@
 FROM python:3.6
-RUN apt-get update && apt-get upgrade -y 
-RUN pip3 install virtualenv\
-    && virtualenv env\
-    && /bin -c "source env/bin/activate" \
-    net-tools \
-    django
-   
+
+RUN apt-get update && apt-get upgrade -y
+
 ADD /server /todo
 
-CMD [ "python", "/todo/manage.py", "runserver", "0.0.0.0:8000" ]
+WORKDIR /todo
+
+RUN pip3 install -r requirements.txt
+
+CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
+
+
