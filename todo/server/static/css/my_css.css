@@ -1,0 +1,4 @@
+{% load static %}
+.striker{
+    text_decoration: line-through;
+}
